@@ -35,3 +35,10 @@ pnpm-debug.log*
 .env.*
 .env.local
 .env.*.local
+
+# Local tooling state
+.serena/
+.claude/
+
+# TypeScript build info
+*.tsbuildinfo
