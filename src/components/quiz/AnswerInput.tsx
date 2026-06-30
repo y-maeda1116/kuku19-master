@@ -1,6 +1,4 @@
 // src/components/quiz/AnswerInput.tsx
-import { Keypad } from './Keypad'
-
 type Props = {
   value: string
   onChange: (v: string) => void
