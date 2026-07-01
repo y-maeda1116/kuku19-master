@@ -28,6 +28,15 @@ export const useQuiz = (onJudged?: (isCorrect: boolean) => void) => {
     setUserAnswer('')
   }, [phase])
 
+  const setAnswer = useCallback(
+    (value: string) => {
+      if (phase !== 'answering') return
+      const digits = value.replace(/[^0-9]/g, '').slice(0, MAX_DIGITS)
+      setUserAnswer(digits)
+    },
+    [phase],
+  )
+
   const submit = useCallback(() => {
     if (phase !== 'answering') return
     if (userAnswer === '') return
@@ -51,6 +60,7 @@ export const useQuiz = (onJudged?: (isCorrect: boolean) => void) => {
     isCorrect,
     inputDigit,
     clearAnswer,
+    setAnswer,
     submit,
     next,
   } as const
