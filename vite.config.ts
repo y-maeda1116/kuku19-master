@@ -3,6 +3,9 @@ import react from '@vitejs/plugin-react'
 import tailwindcss from '@tailwindcss/vite'
 
 export default defineConfig({
+  // GitHub Pages はプロジェクトサイト (user.github.io/kuku19-master/) なので
+  // ビルド時のみサブパスを base に指定。ローカル dev はルート(/)のまま。
+  base: process.env.GITHUB_ACTIONS === 'true' ? '/kuku19-master/' : '/',
   plugins: [react(), tailwindcss()],
   test: {
     globals: true,
